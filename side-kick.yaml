@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
+version: 4
 upgrade:
   source: cdn
   interval: 168h
@@ -30,13 +30,6 @@ blocks:
           fetch_status: true
           fetch_upstream_icon: true
         template: " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
-        # foreground: "#43CCEA"
-        # background: "#29315A"
-        # foreground_templates:
-        #   - "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}"
-        #   - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}"
-        #   - "{{ if gt .Ahead 0 }}#B388FF{{ end }}"
-        #   - "{{ if gt .Behind 0 }}#B388FF{{ end }}"
       - type: status
         style: plain
         foreground: "red"
@@ -49,7 +42,6 @@ blocks:
         style: plain
         foreground: cyan
         template: "   {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}"
-        # template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
         options:
           display_mode: files
           fetch_virtual_env: true
@@ -87,5 +79,3 @@ transient_prompt:
   template: "❯ "
   background: transparent
   foreground: green
-
-version: 4
